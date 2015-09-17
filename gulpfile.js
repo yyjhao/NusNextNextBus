@@ -92,7 +92,7 @@ gulp.task('watch', ['serve'], function () {
     gulp.watch([
             'app/*.html'
     ]).on('change', function (file) {
-            server.notify();
+        server.notify(file);
     });
 
     gulp.watch('/server/app.js', [server.run]);
