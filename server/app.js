@@ -48,6 +48,7 @@ app.get('/api/buses', function(req, res) {
 app.use('/scripts', express.static(__dirname + '/../app/scripts'));
 app.use('/styles', express.static(__dirname + '/../app/styles'));
 app.use('/index.html', express.static(__dirname + '/../app/index.html'));
+app.use('/nushackerspace.html', express.static(__dirname + '/../app/nushackerspace.html'));
 app.get('/', function(req, res) {
     fs.createReadStream(__dirname + '/../app/index.html').pipe(res);
 });

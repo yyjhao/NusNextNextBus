@@ -17,6 +17,7 @@
         "./api.ts",
         "./geo_service.ts",
         "./hash_service.ts",
+        "./hs.ts",
         "./main.ts",
         "./ui/bus_item.ts",
         "./ui/bus_list.ts",

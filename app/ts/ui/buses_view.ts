@@ -10,6 +10,7 @@ interface P {
     stopId: string;
     api: Api;
     loadBuses: boolean;
+    autoHeight: boolean;
 }
 
 interface S {
@@ -74,7 +75,7 @@ class BusesView extends TypedReact.Component<P, S> {
         return r.div({
             className: "buses-view",
             style: {
-                height: height + "px"
+                height: this.props.autoHeight ? "auto" : height + "px"
             }
         }, inner);
     }

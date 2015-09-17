@@ -1,0 +1,51 @@
+body {
+    font-size: 2em;
+}
+
+.stations {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &>li {
+        float: left;
+        width: 31.333%;
+        margin: 0 1%;
+    }
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.bus-list {
+    box-shadow: none;
+    color: black;
+    background: none;
+
+    .bus-item {
+        height: auto;
+
+        .bus-name {
+            height: auto;
+            margin: 5px 20px;
+            border-bottom: 1px solid;
+        }
+
+        .timing-row {
+            height: auto;
+            line-height: 1;
+            padding: 10px 0;
+
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+    }
+}
+
+.buses-view {
+    transition: none;
+}

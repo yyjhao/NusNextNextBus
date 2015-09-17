@@ -54,7 +54,7 @@ gulp.task('minify-js', function () {
         });
     });
 
-    return gulp.src('app/js/main.js')
+    return gulp.src(['app/js/main.js', 'app/js/hs.js'])
         .pipe(browserified)
         .pipe($.sourcemaps.init({ loadMaps: true }))
         .pipe($.uglify())
@@ -76,7 +76,7 @@ gulp.task('concat-js', function() {
         });
     });
 
-    return gulp.src('app/js/main.js')
+    return gulp.src(['app/js/main.js', 'app/js/hs.js'])
         .pipe(browserified)
         .pipe(gulp.dest('app/scripts'))
         .pipe(server.notify());
