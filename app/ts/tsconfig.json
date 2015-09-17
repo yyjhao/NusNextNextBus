@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true
+    },
+    "buildOnSave": false,
+    "compileOnSave": false,
+    "filesGlob": [
+        "./**/*.ts",
+        "../../node_modules/**/*.ts",
+        "../../typings/**/*.ts"
+    ],
+    "files": [
+        "./ajax.ts",
+        "./api.ts",
+        "./geo_service.ts",
+        "./hash_service.ts",
+        "./main.ts",
+        "./ui/bus_item.ts",
+        "./ui/bus_list.ts",
+        "./ui/buses_view.ts",
+        "./ui/loading.ts",
+        "./ui/station_item.ts",
+        "./ui/station_list.ts",
+        "./ui/station_view.ts",
+        "../../node_modules/browser-sync/node_modules/immutable/contrib/cursor/__tests__/Cursor.ts",
+        "../../node_modules/browser-sync/node_modules/immutable/contrib/cursor/index.d.ts",
+        "../../node_modules/browser-sync/node_modules/immutable/dist/immutable.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.core.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.core.es6.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.dom.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.es6.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.scriptHost.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/lib.webworker.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/typescript.d.ts",
+        "../../node_modules/gulp-typescript/node_modules/typescript/bin/typescriptServices.d.ts",
+        "../../node_modules/typed-react/typed-react.d.ts",
+        "../../typings/react/react.d.ts",
+        "../../typings/tsd.d.ts"
+    ]
+}

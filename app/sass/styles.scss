@@ -1,0 +1,174 @@
+$PADDING: 20px;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#8e9eab 10%, #eef2f3 90%) fixed;
+    -webkit-tap-highlight-color: rgba(white, 0);
+}
+
+.station-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 450px;
+
+    .station-wrap {
+
+    }
+
+    .station-item {
+        cursor: pointer;
+        background: linear-gradient(135deg,#ffe26f,#e8c962);
+        box-shadow: 0 5px 25px rgba(0,0,0,.15),
+                    0 1px 3px rgba(white, 0.3) inset;
+        color: #e07556;
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    .station-name {
+        padding: $PADDING $PADDING $PADDING / 2 $PADDING;
+    }
+
+    .station-distance {
+        padding: $PADDING / 2 $PADDING $PADDING $PADDING;
+        border-bottom: 1px solid lighten(#e07556, 20);
+    }
+
+    .arrow {
+        border-top: 1px solid rgba(white, 0.2);
+        padding: $PADDING / 2 0;
+    }
+
+    .arrow-inner {
+        margin: 0 auto;
+        text-align: center;
+        width: 1em;
+        transition-duration: 200ms;
+        transform-origin: center 45%;
+
+        &.arrow-up {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.bus-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    background: lighten(#ffe26f, 15);
+    color: darken(#e07556, 25);
+    box-shadow: 0 0 2px #333,
+                0 2px 0px rgba(black, 0.2) inset,
+                0 1px 0px rgba(black, 0.3) inset,
+                0 -1px 0px rgba(black, 0.1) inset;
+    padding-bottom: 10px;
+
+    .bus-item {
+        height: 69px;
+        padding-top: 1px;
+
+        .bus-name {
+            height: 19px;
+            margin: 5px $PADDING;
+            border-bottom: 1px solid;
+        }
+
+        .timing-row {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .timing-text {
+            float: left;
+            clear: both;
+            padding-left: $PADDING;
+        }
+
+        .bus-timing {
+            float: right;
+            padding-right: $PADDING;
+        }
+    }
+}
+
+.buses-view {
+    transition-duration: 200ms;
+    overflow: hidden;
+}
+
+.station-list {
+    margin-top: 120px;
+}
+
+.loading-spinner {
+    margin: 0 auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+    &>div {
+        background-color: darken(#e07556, 25);
+        height: 100%;
+        width: 6px;
+        display: inline-block;
+
+        animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .rect2 {
+        animation-delay: -1.1s;
+    }
+
+    .rect3 {
+        animation-delay: -1.0s;
+    }
+
+    .rect4 {
+        animation-delay: -0.9s;
+    }
+
+    .rect5 {
+        animation-delay: -0.8s;
+    }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.loading-row {
+    padding-top: 10px;
+    height: 60px;
+    background: lighten(#ffe26f, 15);
+}
+
+.loading-screen {
+    padding-top: 100px;
+}
+
+body {
+    padding-top: 1px;
+}
+
+@media screen and (max-width: 450px) {
+    .station-list {
+        margin-top: 0;
+    }
+
+    body {
+        padding-top: 0;
+    }
+}

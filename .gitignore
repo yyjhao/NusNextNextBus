@@ -1,0 +1,7 @@
+/node_modules/
+/.sass-cache/
+/app/js/
+/app/scripts/
+/app/styles
+.DS_Store
+/typings/
