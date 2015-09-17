@@ -17,8 +17,9 @@ interface P {
 interface S {
     stationsInfo?: Api.StationInfo[];
     displayBuses?: { [s: string]: boolean };
-    longitude: number;
-    latitude: number;
+    longitude?: number;
+    latitude?: number;
+    hasFailed?: boolean;
 }
 
 interface GeoPoint {
@@ -47,11 +48,13 @@ class StationView extends TypedReact.Component<P, S> {
         return {
             longitude: 0,
             latitude: 0,
+            hasFailed: false,
             displayBuses: {}
         };
     }
 
     componentWillMount() {
+        this.props.api.bindFailures(this._onNetworkFailure)
         this.props.api.getStops(this._storeStops);
         this.props.geoService.bind(this._updateLocation);
         this.props.hashService.bind(this._updateDisplayBuses);
@@ -65,7 +68,7 @@ class StationView extends TypedReact.Component<P, S> {
                 return {
                     id: station.id,
                     name: station.name,
-                    distance: dist(station, this.state)
+                    distance: dist(station, <any>(this.state))
                 };
             });
             stations.sort(function(s1, s2) {
@@ -79,12 +82,17 @@ class StationView extends TypedReact.Component<P, S> {
                 };
                 displayBuses = Object.create(displayBuses, additional);
             }
-            return React.createElement(StationList, {
-                stations: stations,
-                displayBuses: displayBuses,
-                onItemClicked: this._onItemClicked,
-                api: this.props.api
-            });
+            return r.div({},
+                React.createElement(StationList, {
+                    stations: stations,
+                    displayBuses: displayBuses,
+                    onItemClicked: this._onItemClicked,
+                    api: this.props.api
+                }),
+                this.state.hasFailed ? this._renderNetworkError() : null
+            );
+        } else if (this.state.hasFailed) {
+            return this._renderNetworkError();
         } else {
             return r.div({
                 className: "loading-screen"
@@ -92,6 +100,25 @@ class StationView extends TypedReact.Component<P, S> {
                 React.createElement(Loading)
             );
         }
+    }
+
+    private _renderNetworkError() {
+        return r.div({
+            className: "network-issue"
+        },
+            r.div({
+                className: "network-issue-inner"
+            },
+                "There are some problems with your network, try ",
+                r.a({
+                    href: "#",
+                    onClick: this._refresh
+                },
+                    "refreshing"
+                ),
+                "?"
+            )
+        );
     }
 
     private _storeStops = (stations: Api.StationInfo[]) => {
@@ -131,6 +158,17 @@ class StationView extends TypedReact.Component<P, S> {
             this.props.hashService.toggleDisplay(id);
         }
     };
+
+    private _onNetworkFailure = () => {
+        this.setState({
+            hasFailed: true
+        });
+    }
+
+    private _refresh(event: React.MouseEvent) {
+        event.preventDefault();
+        window.location = window.location;
+    }
 }
 
 export = TypedReact.createClass(StationView);
