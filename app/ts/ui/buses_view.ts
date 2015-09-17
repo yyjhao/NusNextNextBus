@@ -89,7 +89,7 @@ class BusesView extends TypedReact.Component<P, S> {
                 buses: buses
             });
             clearTimeout(this._timer);
-            this._timer = setTimeout(this._initRequest, 30 * 1000);
+            this._timer = setTimeout(this._initRequest, 15 * 1000);
         }
     };
 }
